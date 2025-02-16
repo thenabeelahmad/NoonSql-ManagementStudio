@@ -1,0 +1,16 @@
+D:\Nabeel\WpfApplication1\WpfApplication1\bin\Release\WpfApplication1.exe.config
+D:\Nabeel\WpfApplication1\WpfApplication1\bin\Release\WpfApplication1.exe
+D:\Nabeel\WpfApplication1\WpfApplication1\bin\Release\WpfApplication1.pdb
+D:\Nabeel\WpfApplication1\WpfApplication1\obj\Release\WpfApplication1.csprojResolveAssemblyReference.cache
+D:\Nabeel\WpfApplication1\WpfApplication1\obj\Release\Dashboard.baml
+D:\Nabeel\WpfApplication1\WpfApplication1\obj\Release\MainWindow.baml
+D:\Nabeel\WpfApplication1\WpfApplication1\obj\Release\Dashboard.g.cs
+D:\Nabeel\WpfApplication1\WpfApplication1\obj\Release\MainWindow.g.cs
+D:\Nabeel\WpfApplication1\WpfApplication1\obj\Release\App.g.cs
+D:\Nabeel\WpfApplication1\WpfApplication1\obj\Release\WpfApplication1_Content.g.cs
+D:\Nabeel\WpfApplication1\WpfApplication1\obj\Release\WpfApplication1_MarkupCompile.cache
+D:\Nabeel\WpfApplication1\WpfApplication1\obj\Release\WpfApplication1.g.resources
+D:\Nabeel\WpfApplication1\WpfApplication1\obj\Release\WpfApplication1.Properties.Resources.resources
+D:\Nabeel\WpfApplication1\WpfApplication1\obj\Release\WpfApplication1.csproj.GenerateResource.Cache
+D:\Nabeel\WpfApplication1\WpfApplication1\obj\Release\WpfApplication1.exe
+D:\Nabeel\WpfApplication1\WpfApplication1\obj\Release\WpfApplication1.pdb

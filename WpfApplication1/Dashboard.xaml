@@ -1,0 +1,91 @@
+﻿<Window x:Class="WpfApplication1.Dashboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Dashboard" Height="600" Width="1100"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Ribbon Toolbar -->
+        <ToolBarTray Grid.Row="0" Background="LightGray">
+            <ToolBar>
+                <Button Content="New Query" Width="100" Click="NewQuery_Click"/>
+                <Button Content="Open File" Width="100" Click="OpenFile_Click"/>
+                <Button Content="Save File" Width="100" Click="SaveFile_Click"/>
+                <Separator/>
+                <Button Content="Execute" Width="100" Click="btnExecute_Click" Background="LightGreen"/>
+                <Button Content="Stop" Width="100" Click="StopExecution_Click" Background="LightCoral"/>
+                <Separator/>
+                <Button Content="Settings" Width="100" Click="OpenSettings_Click"/>
+                <Button Content="Help" Width="100" Click="OpenHelp_Click"/>
+            </ToolBar>
+        </ToolBarTray>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Left Panel: TreeView for Database Tables -->
+            <TreeView x:Name="treeDatabases" Grid.Column="0" Margin="5"
+                      SelectedItemChanged="treeDatabases_SelectedItemChanged"
+                      FontWeight="SemiBold" Grid.RowSpan="3"/>
+
+            <!-- Column Splitter -->
+            <GridSplitter Grid.Column="1" Width="5" Background="Gray"
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+            <!-- Top Right: TabControl for Multiple Query Editors -->
+            <TabControl x:Name="tabControl" SelectionChanged="TabControl_SelectionChanged" Grid.Column="2" Grid.Row="0" Margin="5">
+                <TabItem Header="SQLQuery1.sql">
+                    <Grid>
+                        <TextBox x:Name="txtQueryEditor" AcceptsReturn="True" TextWrapping="Wrap"
+                                 VerticalScrollBarVisibility="Auto" FontFamily="Consolas" FontSize="14"
+                                 Padding="5" Margin="5"/>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+
+            <!-- Row Splitter -->
+            <GridSplitter Grid.Row="1" Grid.Column="2" Height="5" Background="Gray"
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+            <!-- Bottom Right: Query Results -->
+            <DataGrid x:Name="dgQueryResults" Grid.Column="2" Grid.Row="2"
+                      AutoGenerateColumns="True" Margin="5"/>
+
+            <!-- LOADER OVERLAY -->
+            <Grid x:Name="LoaderOverlay" Grid.Column="2" Grid.RowSpan="3"
+      Background="#AA000000" Visibility="Collapsed">
+                <Border Background="#333" Padding="20" CornerRadius="10"
+            HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock x:Name="LoaderText" Text="Executing query..." 
+                       Foreground="White" FontWeight="Bold"
+                       FontSize="16" Margin="0,0,0,10"
+                       HorizontalAlignment="Center"/>
+                        <!-- GIF Loader -->
+                        <Grid  Margin="20">
+                            <fa:ImageAwesome Foreground="White" Icon="Refresh" Spin="True" Height="48" Width="48" />
+                        </Grid>
+                    </StackPanel>
+                </Border>
+                
+            </Grid>
+            
+
+        </Grid>
+    </Grid>
+</Window>
