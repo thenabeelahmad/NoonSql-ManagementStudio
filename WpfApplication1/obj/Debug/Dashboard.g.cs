@@ -101,7 +101,7 @@ namespace WpfApplication1 {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WpfApplication1;component/dashboard.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/NoonSQL;component/dashboard.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\Dashboard.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

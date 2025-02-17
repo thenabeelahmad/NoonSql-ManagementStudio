@@ -44,12 +44,12 @@ namespace WpfApplication1
         private List<string> GetViewList(string dbName)
 {
     List<string> views = new List<string>();
-    string connectionString = $"Server=.;Database={dbName};Integrated Security=True;";
+    //string connectionString = $"Server=.;Database={dbName};Integrated Security=True;";
 
     using (SqlConnection conn = new SqlConnection(connectionString))
     {
         conn.Open();
-        string query = "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.VIEWS"; 
+        string query = "use "+dbName+";SELECT TABLE_NAME FROM INFORMATION_SCHEMA.VIEWS"; 
 
         using (SqlCommand cmd = new SqlCommand(query, conn))
         using (SqlDataReader reader = cmd.ExecuteReader())
@@ -161,7 +161,7 @@ namespace WpfApplication1
         {
             try
             {
-                string connectionString = $"Server=.;Database={database};Integrated Security=True;";
+                //string connectionString = $"Server=.;Database={database};Integrated Security=True;";
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
                     con.Open();
@@ -1048,7 +1048,7 @@ namespace WpfApplication1
 
         private void ExecuteSelectTop1000(string databaseName, string tableName)
         {
-            string query = $"SELECT TOP 1000 * FROM {tableName}";
+            string query = $"use {databaseName};SELECT TOP 1000 * FROM {tableName}";
             //MessageBox.Show($"Executing Query:\n{query}", "SQL Query", MessageBoxButton.OK, MessageBoxImage.Information);
 
             // 🔹 You can now execute this query using your existing SQL connection.
@@ -1058,29 +1058,18 @@ namespace WpfApplication1
             //ShowQueryResult(result);
         }
 
-        //private void ShowQueryResult(DataTable result)
-        //{
-        //    // Assuming you have a DataGrid named "dataGridResults" in your XAML
-        //    dgQueryResults.ItemsSource = result.DefaultView;
-        //    dgQueryResults.IsReadOnly = true;  // Prevents editing
-        //    dgQueryResults.CanUserAddRows = false;  // Prevents adding new rows
-        //    dgQueryResults.CanUserDeleteRows = false;  // Prevents deleting rows
-        //    dgQueryResults.CanUserReorderColumns = false;  // Optional: Prevents column reordering
-        //    dgQueryResults.CanUserResizeRows = false;  // Optional: Prevents row resizing
-        //}
-
 
         // Placeholder methods (replace with actual DB logic)
         private List<string> GetTableList(string dbName)
         {
             List<string> tables = new List<string>();
 
-            string connectionString = $"Server=.;Database={dbName};Integrated Security=True;";
+            //string connectionString = $"Server={server};Database={dbName};Integrated Security=True;";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                string query = "SELECT DISTINCT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'";
+                string query = "use "+dbName+";SELECT DISTINCT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -1149,7 +1138,5 @@ namespace WpfApplication1
             //    LoadTableData(selectedName);
             //}
         }
-
-
     }
 }
